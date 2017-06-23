@@ -1,3 +1,5 @@
+package June22;
+
 import javafx.scene.SubScene;
 
 import java.io.BufferedReader;
@@ -72,12 +74,11 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        // task5: operations priority
+        /*// task5: operations priority
         int i = 3;
         i = -i++ + i++ + -i;
         System.out.println(i);
-        System.out.println(Double.MAX_VALUE);
-
+        System.out.println(Double.MAX_VALUE);*/
     }
 
     private String isEven(int count) {
