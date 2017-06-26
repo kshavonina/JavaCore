@@ -1,6 +1,5 @@
 package June26;
 
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,7 +18,7 @@ public class MainTest {
         Main main = new Main();
         // если здесь метод isEven объявлен как private, то тест сделать будет нельзя
         // если сделать package, то все ок, т.к. пакет один и тот же
-        Assert.assertTrue( main.isEven(2));
+        Assert.assertTrue(main.isEven(2));
         Assert.assertEquals("Something went wrong!", 1, count);
     }
 
