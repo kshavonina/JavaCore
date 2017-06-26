@@ -66,9 +66,22 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println();
+
+        // don't repeat your ...
+        // keep it simple and stupid
+
+        // testing
+
+        Main main =  new Main();
+        System.out.println(main.isEven(2));
 
 
 
 
+    }
+
+    boolean isEven(int catAge) {
+        return catAge % 2 == 0;
     }
 }
