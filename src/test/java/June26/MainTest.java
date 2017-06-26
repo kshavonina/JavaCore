@@ -32,5 +32,6 @@ public class MainTest {
         count--;
     }
 
+
     // еще в тестировании есть аннотации Before, BeforeClass, After и AfterClass
 }
