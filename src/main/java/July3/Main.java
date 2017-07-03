@@ -57,10 +57,30 @@ public class Main {
         Cat barsik = new Cat("Barsik");
         Cat murzik = new Cat("Murzik");
         Cat dimok = new Cat("Dimok");
+        Cat riska = new Cat("Riska");
+        Cat snegok = new Cat("Snegok");
+        Cat lev4ik = new Cat("Lev4ik");
         map.put(barsik, barsik);
         map.put(murzik, murzik);
         map.put(dimok, dimok);
+        map.put(riska, riska);
+        map.put(snegok, snegok);
+        map.put(lev4ik, lev4ik);
 
         System.out.println(map);
+
+        dimok.setName("dimok");
+
+        System.out.println(map);
+
+
+        map.put(dimok, dimok);
+
+        System.out.println(map.containsKey(dimok));
+
+        HashMap<Cat, Cat> newCatMap = new HashMap<>();
+        newCatMap.putAll(map);
+
+        System.out.println();
     }
 }
