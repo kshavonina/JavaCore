@@ -1,5 +1,6 @@
 package July3;
 
+import June22.Barsik;
 import June22.Cat;
 
 import java.io.BufferedReader;
@@ -8,7 +9,14 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
+    public static int count = 2;
+
+    /*static*/ {
+        count = 10;
+    }
+
     public static void main(String[] args) {
+
         /*BitSet set = new BitSet();
         List<Integer> list = new ArrayList<>();
 
@@ -50,7 +58,7 @@ public class Main {
 
         System.out.println(map.values());*/
 
-        HashMap<Cat, Cat> map = new HashMap<>();
+        /*HashMap<Cat, Cat> map = new HashMap<>();
         Cat barsik = new Cat("Barsik");
         Cat murzik = new Cat("Murzik");
         Cat dimok = new Cat("Dimok");
@@ -90,6 +98,11 @@ public class Main {
         map2.put(10, 10);
         map2.put(11, 11);
 
-        System.out.println(map2);
+        System.out.println(map2);*/
+
+        //Main main = new Main();
+        System.out.println(Main.count);
+
+        System.out.println(Barsik.class);
     }
 }

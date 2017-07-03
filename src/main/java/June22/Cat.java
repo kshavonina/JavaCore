@@ -2,6 +2,8 @@ package June22;
 
 public class Cat {
     private String name = "Musya";
+    private Number countNum;
+    private Integer countInt;
 
     public Cat() {
 
@@ -36,5 +38,13 @@ public class Cat {
         //return 1;
     }
 
-    //jnknjlmlmlk
+    public void catLegSize(int size) {
+        System.out.println("My cat size: " + countInt + size + 10);
+    }
+
+    public void catLegSize(long size) {
+        System.out.println("My cat size: " + countNum + size + 20);
+    }
+
+
 }
