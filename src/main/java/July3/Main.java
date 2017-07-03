@@ -5,10 +5,7 @@ import June22.Cat;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -71,9 +68,6 @@ public class Main {
 
         dimok.setName("dimok");
 
-        System.out.println(map);
-
-
         map.put(dimok, dimok);
 
         System.out.println(map.containsKey(dimok));
@@ -82,5 +76,20 @@ public class Main {
         newCatMap.putAll(map);
 
         System.out.println();
+
+        TreeMap<Integer, Integer> map2 = new TreeMap<>();
+        map2.put(1, 1);
+        map2.put(2, 2);
+        map2.put(3, 3);
+        map2.put(4, 4);
+        map2.put(5, 5);
+        map2.put(6, 6);
+        map2.put(7, 7);
+        map2.put(8, 8);
+        map2.put(9, 9);
+        map2.put(10, 10);
+        map2.put(11, 11);
+
+        System.out.println(map2);
     }
 }

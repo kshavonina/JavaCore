@@ -32,8 +32,8 @@ public class Cat {
 
     @Override
     public int hashCode() {
-        //return name != null ? name.hashCode() : 0;
-        return 1;
+        return name != null ? name.hashCode() : 0;
+        //return 1;
     }
 
     //jnknjlmlmlk
