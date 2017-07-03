@@ -30,7 +30,10 @@ public class Main {
 //        set.set(3, false);
 
         for (int i = 0; i < list.size(); i++) {
-            set.set(i, list.get(i) % 2 == 0); // odd - add, even - don't add
+            set.set(list.get(i), list.get(i) % 2 == 0); // odd - add, even - don't add
         }
+
+        System.out.println("Is Even: ");
+        System.out.println(set.toString());
     }
 }
