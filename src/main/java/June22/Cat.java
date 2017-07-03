@@ -3,6 +3,14 @@ package June22;
 public class Cat {
     private String name = "Musya";
 
+    public Cat() {
+
+    }
+
+    public Cat(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,7 +32,8 @@ public class Cat {
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        //return name != null ? name.hashCode() : 0;
+        return 1;
     }
 
     //jnknjlmlmlk
