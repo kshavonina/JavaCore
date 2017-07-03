@@ -13,13 +13,16 @@ public class Main {
         List<Integer> list = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int num = Integer.parseInt(reader.readLine());
-            while (num != 8) {
-                list.add(num);
+            String s = reader.readLine();
+            while (!s.equals("8")) {
+                list.add(Integer.parseInt(s));
+                s = reader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println(list.toString());
 
 //        set.set(0, false);
 //        set.set(1, true);
