@@ -1,5 +1,7 @@
 package July6;
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 public class Main {
     public static void main(String[] args) {
         String s = "Jack";
@@ -18,6 +20,8 @@ public class Main {
         char[] value = "asd".toCharArray();
         String str = new String(value, 0, 2);
         System.out.println(str);
+
+        CharSequence sequence = new StringBuilder();
     }
 
     private String getString() {
