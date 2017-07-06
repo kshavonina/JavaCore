@@ -14,6 +14,10 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             s = s + i;
         }
+
+        char[] value = "asd".toCharArray();
+        String str = new String(value, 0, 2);
+        System.out.println(str);
     }
 
     private String getString() {
