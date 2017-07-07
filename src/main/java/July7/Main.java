@@ -25,9 +25,33 @@ public class Main {
         // given to round and align the value.
         formatter.format(Locale.FRANCE, "e = %+10.4f", Math.E);*/
 
-        Main main = new Main();
+        /*Main main = new Main();
+        main.formatStr(200, 11, 1);*/
 
-        main.formatStr(200, 11, 1);
+        /*String name = "KJaaaa*rl.aaj";
+        String res1 = name.replace("a*", "");
+        System.out.println(res1);
+//        String res2 = name.replaceFirst("a", "");
+//        System.out.println(res2);
+        String res3 = name.replaceAll("a*", "");
+        System.out.println(res3);*/
+
+        String name = "asdd2";
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("asdd").append(2);
+
+        System.out.println(name.contentEquals(builder));
+        System.out.println(name.contentEquals(builder.toString()));
+
+        name.intern();
+
+        String name1 = "j";
+        name1.intern();
+        String name2 = "j";
+        name2.intern();
+
+        System.out.println(name1 == name2);
     }
 
     void formatStr(int year, int month, int day) {
