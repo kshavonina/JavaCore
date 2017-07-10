@@ -1,5 +1,8 @@
 package July7;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.Formatter;
 import java.util.GregorianCalendar;
@@ -36,7 +39,7 @@ public class Main {
         String res3 = name.replaceAll("a*", "");
         System.out.println(res3);*/
 
-        String name = "asdd2";
+        /*String name = "asdd2";
 
         StringBuilder builder = new StringBuilder();
         builder.append("asdd").append(2);
@@ -51,7 +54,10 @@ public class Main {
         String name2 = "j";
         name2.intern();
 
-        System.out.println(name1 == name2);
+        System.out.println(name1 == name2);*/
+
+        //System.out.println(task04_1());
+        System.out.println(task04_2());
     }
 
     void formatStr(int year, int month, int day) {
@@ -61,4 +67,44 @@ public class Main {
         System.out.println(s);
         System.out.println(String.format("Duke's Birthday: %1$tm %1$te, %1$tY", newC));
     }
+
+    static String task04_1() {
+        String word = null;
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            word = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            if (i % 2 == 1) {
+                res.append(word.charAt(i));
+            }
+        }
+
+        return res.toString();
+    }
+
+    static boolean task04_2() {
+        String phrase = null;
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            phrase = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        phrase = phrase.replace(" ", "");
+        String reversedPhrase = new StringBuilder(phrase).reverse().toString();
+        //StringBuilder sbPhrase = new StringBuilder(phrase);
+
+        if (phrase.equals(reversedPhrase)) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
