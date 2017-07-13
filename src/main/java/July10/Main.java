@@ -1,9 +1,13 @@
 package July10;
 
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         System.out.println(main.count(2));
+
+        int a = 2;
     }
 
     int count(int size) {
