@@ -4,7 +4,8 @@ import java.io.IOException;
 
 public class Recipe {
     // кастрюля с кешем
-    public static boolean flag = true;
+    // if we do it volatile, we have no problems
+    public volatile static boolean flag = true;
 
     public static void main(String[] args) {
         new Recipe.ThreadFlagSetter().start();
@@ -30,7 +31,7 @@ public class Recipe {
         public void run() {
             System.err.println("waiting...");
             while (flag) {
-
+                //System.err.println("waiting...");
             }
 
             System.err.println("Go go");
