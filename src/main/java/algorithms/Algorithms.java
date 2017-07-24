@@ -19,6 +19,8 @@ public class Algorithms {
         Algorithms algs = new Algorithms();
         System.out.println("List sorted by Bubble Sort:");
         System.out.println(algs.bubbleSort(list));
+        System.out.println("List sorted by Shaker Sort:");
+        System.out.println(algs.shakerSort(list));
         System.out.println("List sorted by Insertion Sort:");
         System.out.println(algs.insertionSort(list));
         System.out.println("List sorted by Selection Sort:");
@@ -35,7 +37,7 @@ public class Algorithms {
 
         for (int i = 0; i < listCopy.size() - 1; i++) {
             boolean isSorted = true;
-            for (int j = 0; j < listCopy.size() - i - 1; j++) {
+            for (int j = 0; j < listCopy.size() - 1 - i; j++) {
                 if (listCopy.get(j) > listCopy.get(j + 1)) {
                     Collections.swap(listCopy, j, j + 1);
                     isSorted = false;
@@ -45,6 +47,48 @@ public class Algorithms {
             if (isSorted) {
                 break;
             }
+        }
+
+        return listCopy;
+    }
+
+    /**
+     * Shaker sort.
+     * Complexity: O(n^2).
+     * Modification of bubble sort, a little bit faster.
+     */
+    public List<Integer> shakerSort(List<Integer> list) {
+        List<Integer> listCopy = new ArrayList<>(list);
+
+        int rightBound = listCopy.size() - 1;
+        for (int leftBound = 0; leftBound < rightBound; ) {
+            boolean isSorted = true;
+            for (int i = leftBound; i < rightBound; i++) {
+                if (listCopy.get(i) > listCopy.get(i + 1)) {
+                    Collections.swap(listCopy, i, i + 1);
+                    isSorted = false;
+                }
+            }
+
+            if (isSorted) {
+                break;
+            }
+
+            rightBound--;
+
+            isSorted = true;
+            for (int j = rightBound; j > leftBound; j--) {
+                if (listCopy.get(j) < listCopy.get(j - 1)) {
+                    Collections.swap(listCopy, j - 1, j);
+                    isSorted = false;
+                }
+            }
+
+            if (isSorted) {
+                break;
+            }
+
+            leftBound++;
         }
 
         return listCopy;
