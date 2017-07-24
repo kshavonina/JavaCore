@@ -1,8 +1,8 @@
 package algorithms;
 
-import sun.java2d.windows.GDIRenderer;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Algorithms {
     public static void main(String[] args) {
@@ -21,6 +21,8 @@ public class Algorithms {
         System.out.println(algs.bubbleSort(list));
         System.out.println("List sorted by Insertion Sort:");
         System.out.println(algs.insertionSort(list));
+        System.out.println("List sorted by Selection Sort:");
+        System.out.println(algs.selectionSort(list));
     }
 
     /**
@@ -69,8 +71,35 @@ public class Algorithms {
     }
 
     /**
-     * Selection sort
+     * Selection sort.
+     * Complexity: O(n^2).
+     * Can be both stable and unstable. Stable realization - we insert min element on the first unsorted position,
+     * unstable - we swap min element with element on the first unsorted position.
      */
+    public List<Integer> selectionSort(List<Integer> list) {
+        List<Integer> listCopy = new ArrayList<>(list);
+
+        for (int i = 0; i < listCopy.size(); i++) {
+            int min = listCopy.get(i);
+            int minIndex = i;
+
+            for (int j = i + 1; j < listCopy.size(); j++) {
+                if (min > listCopy.get(j)) {
+                    min = listCopy.get(j);
+                    minIndex = j;
+                }
+            }
+
+            if (i != minIndex) {
+                //Collections.swap(listCopy, i, minIndex);  // unstable realization
+
+                listCopy.remove(minIndex);                  // stable realization
+                listCopy.add(i, min);
+            }
+        }
+
+        return listCopy;
+    }
 
     /**
      * Merge sort
