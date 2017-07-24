@@ -25,24 +25,8 @@ public class Algorithms {
         System.out.println(algs.insertionSort(list));
         System.out.println("List sorted by Selection Sort:");
         System.out.println(algs.selectionSort(list));
-        /*System.out.println("List sorted by Merge Sort:");
-        System.out.println(algs.mergeSort(list));*/
-
-
-        List<Integer> firstList = new ArrayList<>();
-        firstList.add(1);
-        firstList.add(6);
-        firstList.add(7);
-        firstList.add(7);
-        firstList.add(8);
-        List<Integer> secondList = new ArrayList<>();
-        secondList.add(2);
-        secondList.add(3);
-        secondList.add(3);
-        secondList.add(7);
-        secondList.add(9);
-        System.out.println(algs.merge(firstList, secondList));
-
+        System.out.println("List sorted by Merge Sort:");
+        System.out.println(algs.mergeSort(list));
     }
 
     /**
@@ -167,13 +151,6 @@ public class Algorithms {
      * Merge sort
      */
     public List<Integer> mergeSort(List<Integer> list) {
-        Algorithms algorithms = new Algorithms();
-        List<Integer> listCopy = algorithms.innerMergeSort(list);
-
-        return listCopy;
-    }
-
-    private List<Integer> innerMergeSort(List<Integer> list) {
         if (list.size() < 2) {
             return list;
         }
@@ -198,52 +175,25 @@ public class Algorithms {
         int firstIndex = 0;
         int secondIndex = 0;
 
-        int buffer;
-
-        boolean isFirstListUsed = true;
-        if (firstList.get(firstIndex) < secondList.get(secondIndex)) {
-            resultList.add(firstList.get(firstIndex));
-            firstIndex++;
-            buffer = secondList.get(secondIndex);
-        } else {
-            resultList.add(secondList.get(secondIndex));
-            secondIndex++;
-            buffer = firstList.get(firstIndex);
-            isFirstListUsed = false;
-        }
-
         while (firstIndex < firstList.size() && secondIndex < secondList.size()) {
-            if (firstList.get(firstIndex) < buffer) {
-                buffer = firstList.get(firstIndex);
-                //firstIndex++;
-            }
-
-            if (secondList.get(secondIndex) < buffer) {
-                buffer = secondList.get(secondIndex);
-                isFirstListUsed = false;
-                //secondIndex++;
-                //firstIndex--;
-            }
-
-            resultList.add(buffer);
-            if (isFirstListUsed) {
-                buffer = secondList.get(secondIndex);
+            if (firstList.get(firstIndex) < secondList.get(secondIndex)) {
+                resultList.add(firstList.get(firstIndex));
                 firstIndex++;
             } else {
-                buffer = firstList.get(firstIndex);
+                resultList.add(secondList.get(secondIndex));
                 secondIndex++;
             }
         }
 
-        if (firstIndex == firstList.size()) {
-            for (int i = secondIndex; i < secondList.size(); i++) {
-                resultList.add(secondList.get(i));
+        if (firstIndex < firstList.size()) {
+            for (int i = firstIndex; i < firstList.size(); i++) {
+                resultList.add(firstList.get(i));
             }
         }
 
-        if (secondIndex == secondList.size()) {
-            for (int i = firstIndex; i < firstList.size(); i++) {
-                resultList.add(firstList.get(i));
+        if (secondIndex < secondList.size()) {
+            for (int i = secondIndex; i < secondList.size(); i++) {
+                resultList.add(secondList.get(i));
             }
         }
 
