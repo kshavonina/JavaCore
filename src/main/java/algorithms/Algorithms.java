@@ -209,7 +209,8 @@ public class Algorithms {
     }
 
     /**
-     * Quick sort
+     * Quick sort.
+     * Complexity: O(n log(n)). (average; the worst: O(n^2))
      */
     public List<Integer> quickSort(List<Integer> list) {
         List<Integer> listCopy = new ArrayList<>(list);
@@ -224,7 +225,7 @@ public class Algorithms {
             algorithms.qsort(list.subList(0, p > 0 ? p : 0));
             algorithms.qsort(list.subList(p < list.size() - 1 ? p + 1 : list.size() - 1, list.size()));
             /*subList(int fromIndex, int toIndex) Returns a view of the portion of this list between
-             the specified fromIndex, inclusive, and toIndex, exclusive.*/
+             the specified fromIndex, INCLUSIVE, and toIndex, EXCLUSIVE.*/
         }
     }
 
