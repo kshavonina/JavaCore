@@ -31,6 +31,23 @@ public class Algorithms {
         System.out.println(algs.mergeSort(list));
         System.out.println("List sorted by Quick Sort:");
         System.out.println(algs.quickSort(list));
+
+        System.out.println();
+        System.out.println("Index of element " + 98 + " is: " + algs.binarySearch(algs.quickSort(list), 98));
+
+        /*List<Integer> test = new ArrayList<>();
+        test.add(0);
+        test.add(5);
+        test.add(6);
+        test.add(7);
+        test.add(56);
+        test.add(57);
+        test.add(78);
+        test.add(90);
+        test.add(99);
+        System.out.println(test);
+        System.out.println(algs.binarySearch(test, 99));*/
+
     }
 
     /**
@@ -211,6 +228,8 @@ public class Algorithms {
     /**
      * Quick sort.
      * Complexity: O(n log(n)). (average; the worst: O(n^2))
+     * One of the fastest sortings. Select the pivot, do partition, and then repeat it for subarrays
+     * left and right of the pivot.
      */
     public List<Integer> quickSort(List<Integer> list) {
         List<Integer> listCopy = new ArrayList<>(list);
@@ -257,8 +276,28 @@ public class Algorithms {
      * Binary search
      */
     public int binarySearch(List<Integer> list, int value) {
+        int fromIndex = 0;
+        int toIndex = list.size() - 1;
 
+        int middleIndex;
+        while (toIndex - fromIndex > 0) {
+            middleIndex = (fromIndex + toIndex) / 2;
 
-        throw new IllegalArgumentException("Value not found.");
+            if (list.get(middleIndex) == value) {
+                return middleIndex;
+            } else if (list.get(middleIndex) > value) {
+                toIndex = middleIndex;
+            } else {
+                fromIndex = middleIndex + 1;
+            }
+        }
+
+        middleIndex = (fromIndex + toIndex) / 2;
+        if (list.get(middleIndex) == value) {
+            return middleIndex;
+        }
+
+        return -1;
+        //throw new IllegalArgumentException("Value not found.");
     }
 }
