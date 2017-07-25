@@ -1,5 +1,7 @@
 package algorithms;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,6 +29,8 @@ public class Algorithms {
         System.out.println(algs.selectionSort(list));
         System.out.println("List sorted by Merge Sort:");
         System.out.println(algs.mergeSort(list));
+        System.out.println("List sorted by Quick Sort:");
+        System.out.println(algs.quickSort(list));
     }
 
     /**
@@ -148,7 +152,10 @@ public class Algorithms {
     }
 
     /**
-     * Merge sort
+     * Merge sort.
+     * Complexity: O(n*log(n))
+     * Sortable list divides into two parts of approximately the same size. Each of the parts sorts separately by
+     * recursive call. And then two sorted list's parts merge into one list.
      */
     public List<Integer> mergeSort(List<Integer> list) {
         if (list.size() < 2) {
@@ -163,6 +170,7 @@ public class Algorithms {
                 algorithms.mergeSort(list.subList(middle, list.size())));
     }
 
+    // Merges two parts of sorted list in one list.
     private List<Integer> merge(List<Integer> firstList, List<Integer> secondList) {
         List<Integer> resultList = new ArrayList<>();
 
@@ -203,6 +211,42 @@ public class Algorithms {
     /**
      * Quick sort
      */
+    public List<Integer> quickSort(List<Integer> list) {
+        List<Integer> listCopy = new ArrayList<>(list);
+        new Algorithms().qsort(listCopy);
+        return listCopy;
+    }
+
+    private void qsort(List<Integer> list) {
+        if (list.size() > 1) {
+            Algorithms algorithms = new Algorithms();
+            int p = algorithms.partition(list);
+            algorithms.qsort(list.subList(0, p > 0 ? p : 0));
+            algorithms.qsort(list.subList(p < list.size() - 1 ? p + 1 : list.size() - 1, list.size()));
+            /*subList(int fromIndex, int toIndex) Returns a view of the portion of this list between
+             the specified fromIndex, inclusive, and toIndex, exclusive.*/
+        }
+    }
+
+    private int partition(List<Integer> list) {
+        int pivotIndex = (int) (Math.random() * (list.size() - 1));
+        Integer pivot = list.get(pivotIndex);
+        Collections.swap(list, 0, pivotIndex);
+        pivotIndex = 0;
+
+        for (int i = 1; i < list.size(); i++) {
+            if (pivot >= list.get(i)) {
+                int lessThanPivot = list.get(i);
+                list.remove(i);
+                list.add(pivotIndex, lessThanPivot);
+                if (pivot != lessThanPivot) {
+                    pivotIndex++;
+                }
+            }
+        }
+
+        return pivotIndex;
+    }
 
     /**
      * Radix sort
@@ -211,4 +255,9 @@ public class Algorithms {
     /**
      * Binary search
      */
+    public int binarySearch(List<Integer> list, int value) {
+
+
+        throw new IllegalArgumentException("Value not found.");
+    }
 }
