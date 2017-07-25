@@ -46,7 +46,7 @@ public class Algorithms {
         test.add(90);
         test.add(99);
         System.out.println(test);
-        System.out.println(algs.binarySearch(test, 99));*/
+        System.out.println(algs.binarySearch(test, 0));*/
 
     }
 
@@ -273,31 +273,28 @@ public class Algorithms {
      */
 
     /**
-     * Binary search
+     * Binary search.
+     * Complexity: O(log(n)).
+     * Also known as half-interval search, logarithmic search, or binary chop.
+     * Classic search algorithm that finds the position of a target value within a sorted array.
+     * Runs in at worst logarithmic time, making O(log n) comparisons
      */
     public int binarySearch(List<Integer> list, int value) {
         int fromIndex = 0;
         int toIndex = list.size() - 1;
 
-        int middleIndex;
-        while (toIndex - fromIndex > 0) {
-            middleIndex = (fromIndex + toIndex) / 2;
+        while (fromIndex <= toIndex) {
+            int middleIndex = fromIndex + (toIndex - fromIndex) / 2;
 
             if (list.get(middleIndex) == value) {
                 return middleIndex;
             } else if (list.get(middleIndex) > value) {
-                toIndex = middleIndex;
+                toIndex = middleIndex - 1;
             } else {
                 fromIndex = middleIndex + 1;
             }
         }
 
-        middleIndex = (fromIndex + toIndex) / 2;
-        if (list.get(middleIndex) == value) {
-            return middleIndex;
-        }
-
         return -1;
-        //throw new IllegalArgumentException("Value not found.");
     }
 }
