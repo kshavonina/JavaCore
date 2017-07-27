@@ -31,22 +31,24 @@ public class Algorithms {
         System.out.println(algs.mergeSort(list));
         System.out.println("List sorted by Quick Sort:");
         System.out.println(algs.quickSort(list));
+        System.out.println("List sorted by Radix Sort LSD:");
+        System.out.println(algs.radixSortLSD(list));
+        System.out.println("List sorted by Radix Sort MSD:");
+        System.out.println();
 
         System.out.println();
         System.out.println("Index of element " + 98 + " is: " + algs.binarySearch(algs.quickSort(list), 98));
 
         /*List<Integer> test = new ArrayList<>();
-        test.add(0);
-        test.add(5);
         test.add(6);
-        test.add(7);
-        test.add(56);
-        test.add(57);
-        test.add(78);
-        test.add(90);
-        test.add(99);
+        test.add(14);
+        test.add(33);
+        test.add(18);
+        test.add(8);
+        test.add(66);
+        test.add(9);
         System.out.println(test);
-        System.out.println(algs.binarySearch(test, 0));*/
+        System.out.println(algs.radixSortLSD(test));*/
 
     }
 
@@ -269,8 +271,62 @@ public class Algorithms {
     }
 
     /**
-     * Radix sort
+     * Radix sort.
+     * Complexity: O(m(n + k)).
+     * n - number of elements,
+     * m - bit number of max value in sorting list,
+     * k - bit number of data (number of possible key bit values; for example, with russian words k = 33,
+     * since the letter can take no more than 33 values).
+     * LSD - Least Significant Digit. In this implementation of the algorithm, we begin with the lowest digit.
      */
+    public List<Integer> radixSortLSD(List<Integer> list) {
+        List<Integer> tempList = new ArrayList<>(list);
+        List<Integer> resultList = new ArrayList<>(list);
+
+        int maxValue = list.get(0);
+        for (int value : list) {
+            if (value > maxValue) {
+                maxValue = value;
+            }
+        }
+        int exp = 1;
+
+        while (maxValue / exp > 0) {
+            int[] bucket = new int[10];
+
+            for (int i = 0; i < resultList.size(); i++) {
+                bucket[resultList.get(i) / exp % 10]++;
+            }
+
+            for (int i = 1; i < bucket.length; i++) {
+                bucket[i] += bucket[i - 1];
+            }
+
+            for (int i = tempList.size() - 1; i >= 0; i--) {
+                bucket[resultList.get(i) / exp % 10]--;
+                tempList.set(bucket[resultList.get(i) / exp % 10], resultList.get(i));
+            }
+
+            for (int i = 0; i < resultList.size(); i++) {
+                resultList.set(i, tempList.get(i));
+            }
+
+            exp *= 10;
+        }
+
+        return resultList;
+    }
+
+    /**
+     * Radix sort.
+     * MSD - Most Significant Digit
+     */
+    public List<Integer> radixSortMSD(List<Integer> list) {
+        List<Integer> listCopy = new ArrayList<>(list);
+
+
+        return listCopy;
+    }
 
     /**
      * Binary search.
