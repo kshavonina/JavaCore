@@ -1,7 +1,5 @@
 package algorithms;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,23 +36,6 @@ public class Algorithms {
 
         System.out.println();
         System.out.println("Index of element " + 98 + " is: " + algs.binarySearch(algs.quickSort(list), 98));
-
-        /*List<Integer> test = new ArrayList<>();
-        test.add(6);
-        test.add(14);
-        test.add(33);
-        test.add(18);
-        test.add(8);
-        test.add(66);
-        test.add(9);
-        System.out.println(test);
-        System.out.println(algs.radixSortLSD(test));*/
-
-        /*
-
-        test comment for git
-         */
-
     }
 
     /**
@@ -320,17 +301,6 @@ public class Algorithms {
         }
 
         return resultList;
-    }
-
-    /**
-     * Radix sort.
-     * MSD - Most Significant Digit
-     */
-    public List<Integer> radixSortMSD(List<Integer> list) {
-        List<Integer> listCopy = new ArrayList<>(list);
-
-
-        return listCopy;
     }
 
     /**
